@@ -1,0 +1,58 @@
+item = []
+
+def add_item():
+
+    name=input("enetr a name of item : ")
+    try:
+        quanitity = int(input("enter a quantity of item :"))
+        price = int(input("enter a price :"))
+
+        dist = {
+        "name": name,
+        "quantity": quanitity,
+        "price" : price
+    }
+        item.append(dist)
+    except ValueError:
+     print("enterd value is wroge")
+
+
+def display_item():
+    for items in item:
+        print(items)
+
+def generate_bill():
+    total= 0
+    for items in item:
+        item_total = items["quantity"] * items["price"]
+        total += item_total
+    
+    print("total bill is : ",total)
+
+
+
+
+print("====GROCERY BILLING SYSTEM====")
+print("1 . add item")
+print("2 . display item ")
+print("3 . generate bill ")
+print("4 . exit ")
+
+
+while True :
+    try:
+     choice = int (input("ENTER A NUMBER : "))
+    
+     if choice == 1 :
+        add_item()
+     elif choice == 2 :
+        display_item()
+     elif choice == 3 :
+        generate_bill()
+     elif choice == 4 :
+        print("EXIT")
+        break
+     else:
+        print("INVAILD NUMBER ENTERD")
+    except ValueError:
+       print("please enter a number ")
